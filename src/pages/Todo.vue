@@ -17,7 +17,9 @@
             round
             dense
             flat
-            icon="add" />
+            icon="add"
+            :disable="!newTask"
+            />
         </template>
       </q-input>
     </div>
@@ -54,6 +56,11 @@
         </q-item-section>
       </q-item>
     </q-list>
+    <div
+    v-if="!tasks.length" class="no-task absolute-center">
+      <q-icon name="check" size="175px" color="primary"></q-icon>
+      <div class="text-h4 text-primary text-center">No Tasks</div>
+    </div>
   </q-page>
 </template>
 
@@ -106,4 +113,8 @@
       color: rgb(12, 57, 81);
     }
   }
+
+  .no-task {
+      opacity: 0.3;
+    }
 </style>
